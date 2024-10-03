@@ -15,7 +15,7 @@
     <url>https://github.com/alaugks/spring-messagesource-catalog</url>
 
     <properties>
-        <junit.version>5.9.3</junit.version>
+        <java.version>17</java.version>
     </properties>
 
     <dependencies>
@@ -225,19 +225,13 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
                 <configuration>
-                    <source>9</source>
-                    <target>9</target>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-    <repositories>
-        <repository>
-            <id>maven_central</id>
-            <name>Maven Central</name>
-            <url>https://repo.maven.apache.org/maven2/</url>
-        </repository>
-    </repositories>
 
 </project>
