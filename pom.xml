@@ -4,6 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.3.4</version>
+        <relativePath/>
+    </parent>
+
     <groupId>dev.alaugks</groupId>
 
     <artifactId>spring-messagesource-json</artifactId>
@@ -12,7 +19,7 @@
 
     <name>${project.groupId}:${project.artifactId}</name>
     <description>Custom JSON Spring MessageSource</description>
-    <url>https://github.com/alaugks/spring-messagesource-catalog</url>
+    <url>https://github.com/alaugks/spring-messagesource-json-example</url>
 
     <properties>
         <java.version>17</java.version>
@@ -23,20 +30,17 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <version>3.3.2</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
-            <version>3.3.2</version>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
-            <version>3.3.2</version>
         </dependency>
 
         <dependency>
