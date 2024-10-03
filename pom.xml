@@ -11,7 +11,7 @@
     <version>1.0.0</version>
 
     <name>${project.groupId}:${project.artifactId}</name>
-    <description>Catalog to create a custom JSON Spring MessageSource</description>
+    <description>Custom JSON Spring MessageSource</description>
     <url>https://github.com/alaugks/spring-messagesource-catalog</url>
 
     <properties>

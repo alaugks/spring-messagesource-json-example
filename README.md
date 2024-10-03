@@ -1,4 +1,4 @@
-# Example: Spring MessageSource from JSON
+# Example: Custom JSON Spring MessageSource
 
 
 ## Build and Run Docker Image
