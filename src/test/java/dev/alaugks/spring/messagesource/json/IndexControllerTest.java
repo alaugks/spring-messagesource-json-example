@@ -1,11 +1,11 @@
 package dev.alaugks.spring.messagesource.json;
 
-import dev.alaugks.spring.messagesource.json.catalog.JsonCatalog;
+import static org.assertj.core.api.Assertions.assertThat;
+
 import dev.alaugks.spring.messagesource.json.config.MessageSourceConfig;
 import dev.alaugks.spring.messagesource.json.config.WebMvcConfigurerConfig;
 import dev.alaugks.spring.messagesource.json.controller.IndexController;
 import org.junit.jupiter.api.Test;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.context.annotation.Import;
@@ -15,11 +15,9 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 
 @WebMvcTest({IndexController.class})
-@Import({IndexController.class, JsonCatalog.class})
+@Import({IndexController.class})
 @ContextConfiguration(classes = {
 		MessageSourceConfig.class,
 		WebMvcConfigurerConfig.class

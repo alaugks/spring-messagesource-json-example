@@ -1,8 +1,7 @@
 # Example: Custom JSON Spring MessageSource
 
 
-This example shows how to use the [spring-messagesource-catalogue](https://github.com/alaugks/spring-messagesource-catalog) to implement a MessageSource from translations in JSON files.
-
+This example shows how to use [spring-messagesource-json](https://github.com/alaugks/spring-messagesource-json).
 
 ## Build and Run Docker Image
 
