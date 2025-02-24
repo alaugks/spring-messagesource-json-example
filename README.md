@@ -25,5 +25,6 @@ docker compose restart
 ## Related MessageSources and Examples
 
 * [XLIFF MessageSource for Spring](https://github.com/alaugks/spring-messagesource-db-example)
-* [Example: Spring MessageSource for XLIFF files](https://github.com/alaugks/spring-messagesource-xliff-example)
-* [Example: Custom Database Spring MessageSource](https://github.com/alaugks/spring-messagesource-db-example)
+* [JSON MessageSource for Spring](https://github.com/alaugks/spring-messagesource-json)
+* [Example: XLIFF MessageSource for Spring](https://github.com/alaugks/spring-messagesource-xliff-example)
+* [Example: Database MessageSource for Spring](https://github.com/alaugks/spring-messagesource-db-example)
