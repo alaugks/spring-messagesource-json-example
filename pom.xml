@@ -7,7 +7,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.4.2</version>
+        <version>3.5.14</version>
         <relativePath/>
     </parent>
 
@@ -46,7 +46,7 @@
         <dependency>
             <groupId>io.github.alaugks</groupId>
             <artifactId>spring-messagesource-json</artifactId>
-            <version>0.1.0</version>
+            <version>0.1.1-SNAPSHOT</version>
         </dependency>
 
         <dependency>
@@ -64,6 +64,20 @@
         </dependency>
 
     </dependencies>
+
+    <repositories>
+        <repository>
+            <id>maven-snapshots</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
+            <layout>default</layout>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
     <profiles>
         <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->

@@ -3,15 +3,14 @@ run-name: Docker Image Build Test [${{ github.ref_name }}]
 on:
   push:
     branches:
-      - main
-      - dev
+      - "**"
   workflow_dispatch:
 jobs:
   tests:
     name: Docker Build Test
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
 
       - name: "Build Docker Image"
         run: |
