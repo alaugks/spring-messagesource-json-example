@@ -15,7 +15,7 @@
 
     <artifactId>spring-messagesource-json</artifactId>
 
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 
     <name>${project.groupId}:${project.artifactId}</name>
     <description>Custom JSON Spring MessageSource</description>
@@ -46,7 +46,7 @@
         <dependency>
             <groupId>io.github.alaugks</groupId>
             <artifactId>spring-messagesource-json</artifactId>
-            <version>0.1.1-SNAPSHOT</version>
+            <version>0.1.1</version>
         </dependency>
 
         <dependency>
