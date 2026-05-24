@@ -3,8 +3,16 @@ run-name: Docker Image Build Test [${{ github.ref_name }}]
 on:
   push:
     branches:
-      - "**"
+      - main
+      - dev
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - main
+      - dev
   workflow_dispatch:
+permissions:
+  contents: read
 jobs:
   tests:
     name: Docker Build Test
