@@ -221,7 +221,7 @@
     </profiles>
 
     <build>
-        <finalName>application</finalName>
+        <finalName>app</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
