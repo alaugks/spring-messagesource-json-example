@@ -15,7 +15,7 @@ public class MessageSourceConfig {
 		return JsonResourceMessageSource.builder(
 			Locale.forLanguageTag("en"),
 			new LocationPattern("messages/*")
-		).build();
+		).enableICU4j().build();
 	}
 
 }

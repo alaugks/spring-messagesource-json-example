@@ -1,6 +1,7 @@
 package dev.alaugks.spring.messagesource.json.controller;
 
 import java.util.Locale;
+import java.util.Map;
 
 import org.springframework.context.MessageSource;
 import org.springframework.context.NoSuchMessageException;
@@ -26,6 +27,8 @@ public class IndexController {
 			model.addAttribute("messages_postcode", this.messageSource.getMessage("messages.postcode", null, locale));
 			model.addAttribute("payment_headline", this.messageSource.getMessage("payment.headline", null, locale));
 			model.addAttribute("payment_expiry_date", this.messageSource.getMessage("payment.expiry_date", null, locale));
+			model.addAttribute("plural_file_deleted", this.messageSource.getMessage("plural.file_deleted", new Object[]{1000}, locale));
+			model.addAttribute("plural_file_deleted_icu4j", this.messageSource.getMessage("plural.file_deleted_icu4j", new Object[]{Map.of("count", 1000)}, locale));
 		}
 		catch (NoSuchMessageException ignored) {}
 

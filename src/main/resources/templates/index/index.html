@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html th:lang="${#locale.toLanguageTag()}">
 <head>
     <title>Home</title>
 
@@ -108,6 +108,14 @@
             <td>payment.expiry_date</td>
             <td>[[#{payment.expiry_date}]]</td>
         </tr>
+        <tr>
+            <td>plural.file_deleted</td>
+            <td>[[#{plural.file_deleted(1000)}]]</td>
+        </tr>
+        <tr>
+            <td>plural.file_deleted_icu4j</td>
+            <td>[[#{plural.file_deleted_icu4j(${ {'count' : 1000} })}]]</td>
+        </tr>
         </tbody>
     </table>
 
@@ -148,6 +156,14 @@
         <tr>
             <td>payment.expiry_date</td>
             <td>[[${payment_expiry_date}]]</td>
+        </tr>
+        <tr>
+            <td>plural.file_deleted</td>
+            <td>[[${plural_file_deleted}]]</td>
+        </tr>
+        <tr>
+            <td>plural.file_deleted_icu4j</td>
+            <td>[[${plural_file_deleted_icu4j}]]</td>
         </tr>
         </tbody>
     </table>
