@@ -1,6 +1,5 @@
 package dev.alaugks.spring.messagesource.json.config;
 
-import io.github.alaugks.spring.messagesource.catalog.resources.LocationPattern;
 import io.github.alaugks.spring.messagesource.json.JsonResourceMessageSource;
 import java.util.Locale;
 import org.springframework.context.MessageSource;
@@ -14,7 +13,7 @@ public class MessageSourceConfig {
 	public MessageSource messageSource() {
 		return JsonResourceMessageSource.builder(
 			Locale.forLanguageTag("en"),
-			new LocationPattern("messages/*")
+			"messages/*"
 		).enableICU4j().build();
 	}
 
