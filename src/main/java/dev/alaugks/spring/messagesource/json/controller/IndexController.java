@@ -22,9 +22,7 @@ public class IndexController {
 	public String index(Model model, Locale locale) {
 		try {
 			model.addAttribute("headline", this.messageSource.getMessage("headline", null, locale));
-			model.addAttribute("messages_headline", this.messageSource.getMessage("messages.headline", null, locale));
 			model.addAttribute("postcode", this.messageSource.getMessage("postcode", null, locale));
-			model.addAttribute("messages_postcode", this.messageSource.getMessage("messages.postcode", null, locale));
 			model.addAttribute("payment_headline", this.messageSource.getMessage("payment.headline", null, locale));
 			model.addAttribute("payment_expiry_date", this.messageSource.getMessage("payment.expiry_date", null, locale));
 			model.addAttribute("plural_file_deleted", this.messageSource.getMessage("plural.file_deleted", new Object[]{1000}, locale));
