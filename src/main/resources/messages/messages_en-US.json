@@ -1,3 +1,4 @@
 {
-  "postcode": "Zip code"
+  "postcode": "Zip code",
+  "salutation": "{salutation, plural, =1 {Ms.} =2 {Mr.} =3 {Mx.} other {Unknown}}"
 }

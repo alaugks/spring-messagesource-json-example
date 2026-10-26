@@ -1,0 +1,5 @@
+{
+  "pgs.file_deleted": "{count, plural, =0 {You deleted no files.} =1 {You deleted one file.} other {You deleted # files.}}",
+  "pgs.greeting": "{recipient_gender, select, feminine {How is she?} masculine {How is he?} other {How are they?}}",
+  "pgs.device_hint": "{device, select, mobile {Open the app on your phone.} desktop {Open the app on your computer.} other {Open the app.}}"
+}

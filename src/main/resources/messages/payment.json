@@ -1,4 +1,6 @@
 {
   "payment.headline": "Payment",
-  "payment.expiry_date": "Expire"
+  "payment.expiry-date": "Expiry date",
+  "payment.expiry-info": "Your card expires on {expiryDate, date, long}.",
+  "payment.paymnet-data": "Your <a href=\"/{0}{1}\">payment data</a>"
 }

@@ -1,3 +1,4 @@
 {
-  "payment.expiry_date": "Expiration date"
+  "payment.expiry-date": "Expiration date",
+  "payment.expiry-info": "Your card expires on {expiryDate, date, long}."
 }

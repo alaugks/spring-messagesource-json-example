@@ -1,4 +1,5 @@
 {
   "headline": "Überschrift",
-  "postcode": "Postleitzahl"
+  "postcode": "Postleitzahl",
+  "salutation": "{salutation, plural, =1 {Frau} =2 {Herr} =3 {Divers} other {Unbekannt}}"
 }

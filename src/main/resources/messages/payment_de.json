@@ -1,4 +1,6 @@
 {
   "payment.headline": "Zahlung",
-  "payment.expiry_date": "Ablaufdatum"
+  "payment.expiry-date": "Ablaufdatum",
+  "payment.expiry-info": "Ihre Karte läuft am {expiryDate, date, long} ab.",
+  "payment.paymnet-data": "Deine <a href=\"/{0}{1}\">Bezahldaten</a>"
 }

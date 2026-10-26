@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html th:lang="${#locale.toLanguageTag()}" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+
+    <title>[[#{seo.title}]]</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 1em;
+            font-size: 1.2em;
+        }
+
+        nav {
+            padding-bottom: 3em;
+        }
+
+        main {
+            clear: both;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            float: left;
+            padding-right: 1em;
+        }
+
+        table {
+            border: 1px solid #dededf;
+            table-layout: fixed;
+            border-collapse: collapse;
+            border-spacing: 1px;
+            text-align: left;
+        }
+
+        table th {
+            border: 1px solid #dededf;
+            background-color: #eceff1;
+            color: #000000;
+            padding: 10px 20px;
+            text-align: left;
+        }
+
+        table td {
+            border: 1px solid #dededf;
+            background-color: #ffffff;
+            color: #000000;
+            padding: 10px 20px;
+        }
+
+        p {
+            font-weight: bold;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a th:href="${languageMenuPath.get('en')}">en</a></li>
+        <li><a th:href="${languageMenuPath.get('de')}">de</a></li>
+        <li><a th:href="${languageMenuPath.get('en-us')}">en-US</a></li>
+    </ul>
+</nav>
+
+<main>
+    <p>Variable Expression</p>
+
+    <table>
+        <thead>
+        <tr>
+            <th>
+                code
+            </th>
+            <th>
+                value
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>headline</td>
+                <td>[[${headline}]]</td>
+            </tr>
+            <tr>
+                <td>postcode</td>
+                <td>[[${postcode}]]</td>
+            </tr>
+            <tr>
+                <td>salutation</td>
+                <td>[[${salutation}]]</td>
+            </tr>
+            <tr>
+                <td>payment_headline</td>
+                <td>[[${payment_headline}]]</td>
+            </tr>
+            <tr>
+                <td>payment_expiry_date</td>
+                <td>[[${payment_expiry_date}]]</td>
+            </tr>
+            <tr>
+                <td>payment_expiry_info</td>
+                <td>[[${payment_expiry_info}]]</td>
+            </tr>
+            <tr>
+                <td>payment_paymnet_data</td>
+                <td>[(${payment_paymnet_data})]</td>
+            </tr>
+            <tr>
+                <td>pgs_file_deleted</td>
+                <td>[[${pgs_file_deleted}]]</td>
+            </tr>
+            <tr>
+                <td>pgs_device_hint</td>
+                <td>[[${pgs_device_hint}]]</td>
+            </tr>
+            <tr>
+                <td>pgs_greeting</td>
+                <td>[[${pgs_greeting}]]</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>Message Expressions</p>
+
+    <table>
+        <thead>
+        <tr>
+            <th>
+                code
+            </th>
+            <th>
+                value
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>headline</td>
+                <td>[[#{headline}]]</td>
+            </tr>
+            <tr>
+                <td>postcode</td>
+                <td>[[#{postcode}]]</td>
+            </tr>
+            <tr>
+                <td>messages.salutation</td>
+                <td>[[#{salutation(${ {'salutation' : 3} })}]]</td>
+            </tr>
+            <tr>
+                <td>payment.headline</td>
+                <td>[[#{payment.headline}]]</td>
+            </tr>
+            <tr>
+                <td>payment.expiry-date</td>
+                <td>[[#{payment.expiry-date}]]</td>
+            </tr>
+            <tr>
+                <td>payment.expiry-info</td>
+                <td>[[#{payment.expiry-info(${ {'expiryDate' : expiryDate} })}]]</td>
+            </tr>
+            <tr>
+                <td>payment.paymnet-data</td>
+                <td>[(#{payment.paymnet-data(${#locale.toLanguageTag()}, '/payment')})]</td>
+            </tr>
+            <tr>
+                <td>pgs.file_deleted</td>
+                <td>[[#{pgs.file_deleted(${ {'count' : 1000} })}]]</td>
+            </tr>
+            <tr>
+                <td>pgs.device_hint</td>
+                <td>[[#{pgs.device_hint(${ {'device' : 'mobile'} })}]]</td>
+            </tr>
+            <tr>
+                <td>pgs.greeting</td>
+                <td>[[#{pgs.greeting(${ {'recipient_gender' : 'feminine'} })}]]</td>
+            </tr>
+        </tbody>
+    </table>
+</main>
+
+</body>
+</html>

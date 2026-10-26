@@ -1,9 +1,17 @@
 package dev.alaugks.spring.messagesource.json;
 
 import dev.alaugks.spring.messagesource.json.config.MessageSourceConfig;
+import dev.alaugks.spring.messagesource.json.config.ThymeleafConfig;
 import dev.alaugks.spring.messagesource.json.config.WebMvcConfigurerConfig;
 import dev.alaugks.spring.messagesource.json.controller.IndexController;
+import dev.alaugks.spring.messagesource.json.thymeleaf.LanguageMenuPath;
+import java.util.List;
+import java.util.regex.Pattern;
+import java.util.stream.Stream;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
 import org.springframework.context.annotation.Import;
@@ -15,12 +23,13 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-
-@WebMvcTest({IndexController.class})
-@Import({IndexController.class})
+@WebMvcTest
+@Import(IndexController.class)
 @ContextConfiguration(classes = {
-		MessageSourceConfig.class,
-		WebMvcConfigurerConfig.class
+	ThymeleafConfig.class,
+	WebMvcConfigurerConfig.class,
+	MessageSourceConfig.class,
+	LanguageMenuPath.class
 })
 class IndexControllerTest {
 
@@ -28,33 +37,77 @@ class IndexControllerTest {
 	private MockMvc mockMvc;
 
 	@Test
-	void test_home_localeEn() throws Exception {
-		MvcResult result = mockMvc
-				.perform(MockMvcRequestBuilders.get("/?lang=en"))
-				.andExpect(MockMvcResultMatchers.status().isOk())
+	void test_index() throws Exception {
+		mockMvc.perform(MockMvcRequestBuilders.get("/"))
+				.andExpect(MockMvcResultMatchers.redirectedUrl("/en/home"))
+				.andExpect(MockMvcResultMatchers.status().is3xxRedirection())
 				.andReturn();
-
-		assertThat(result.getResponse().getContentAsString().indexOf("Postcode")).isPositive();
 	}
 
-	@Test
-	void test_home_localeDe() throws Exception {
-		MvcResult result = mockMvc
-				.perform(MockMvcRequestBuilders.get("/?lang=de"))
-				.andExpect(MockMvcResultMatchers.status().isOk())
-				.andReturn();
-
-		assertThat(result.getResponse().getContentAsString().indexOf("Postleitzahl")).isPositive();
+	static Stream<Arguments> translationsProvider() {
+		return Stream.of(
+			Arguments.of(
+				"/en/home",
+				List.of(
+					"Headline",
+					"Postcode",
+					"Payment",
+					"Expiry date",
+					"Mx.",
+					"You deleted 1,000 files.",
+					"Open the app on your phone.",
+					"How is she?",
+					"Your card expires on July 31, 2026.",
+					"Your <a href=\"/en/payment\">payment data</a>"
+				)
+			),
+			Arguments.of(
+				"/en-us/home",
+				List.of(
+					"Headline",
+					"Zip code",
+					"Payment",
+					"Expiration date",
+					"Mx.",
+					"You deleted 1,000 files.",
+					"Open the app on your phone.",
+					"How is she?",
+					"Your card expires on July 31, 2026.",
+					"Your <a href=\"/en-US/payment\">payment data</a>"
+				)
+			),
+			Arguments.of(
+				"/de/home",
+				List.of(
+					"Überschrift",
+					"Postleitzahl",
+					"Zahlung",
+					"Ablaufdatum",
+					"Divers",
+					"Sie haben 1.000 Dateien gelöscht.",
+					"Öffnen Sie die App auf Ihrem Smartphone.",
+					"Wie geht es ihr?",
+					"Ihre Karte läuft am 31. Juli 2026 ab.",
+					"Deine <a href=\"/de/payment\">Bezahldaten</a>"
+				))
+		);
 	}
 
-	@Test
-	void test_home_localeEnUs() throws Exception {
+	@ParameterizedTest(name = "{0} renders \"{1}\" twice")
+	@MethodSource("translationsProvider")
+	void test_home_rendersTranslations(String path, List<String> translations) throws Exception {
 		MvcResult result = mockMvc
-				.perform(MockMvcRequestBuilders.get("/?lang=en-us"))
-				.andExpect(MockMvcResultMatchers.status().isOk())
-				.andReturn();
+			.perform(MockMvcRequestBuilders.get(path))
+			.andExpect(MockMvcResultMatchers.status().isOk())
+			.andReturn();
 
-		assertThat(result.getResponse().getContentAsString().indexOf("Zip code")).isPositive();
+		String content = result.getResponse().getContentAsString();
+
+		for (String translation : translations) {
+			long count = Pattern.compile(Pattern.quote(translation)).matcher(content).results().count();
+			assertThat(count)
+				.as("translation = %s, expected >= 2", translation, count)
+				.isGreaterThanOrEqualTo(2);
+		}
 	}
 }
-
